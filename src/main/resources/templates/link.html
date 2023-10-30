@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>URL Link</title>
+</head>
+<body>
+
+<ul>
+    <li><a href="" th:href ="@{/view/text}">text url</a></li>
+    <li><a href="" th:href="@{/view/object}">obj url</a></li>
+    <li><a href="" th:href="@{/view/param(param1 = ${param1},param2 = ${param2})}">param url</a></li>
+</ul>
+
+</body>
+</html>

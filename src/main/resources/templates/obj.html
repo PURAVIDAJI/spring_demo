@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h3 th:text = "${student.name}"> th: student.name</h3>
+<!--그냥 뷰만 실행하면 th:text가 나오고, 서버를 통해서 실행하면 data에 담긴 값이 전달된다.-->
+
+<h3 th:text = "${student.getMajor()}">student.getMajor();</h3>
+
+
+</body>
+</html>
