@@ -11,7 +11,7 @@
             resultType="com.example.demo.model.Post">
         SELECT *
         FROM post
-        WHERE postId = #{postID}
+        WHERE postId = #{postid}
     </select>
 
     <insert id = "insertPost" parameterType="com.example.demo.model.Post"
@@ -24,12 +24,12 @@
     <update id="updatePost" parameterType="com.example.demo.model.Post">
         UPDATE post
         SET likes=#{likes}
-        WHERE postId = #{postId}
+        WHERE postId = #{postid}
     </update>
 
     <delete id="deletePost" parameterType="com.example.demo.model.Post">
         DELETE FROM post
-        WHERE postId = #{postId}
+        WHERE postId = #{postid}
     </delete>
 
 </mapper>

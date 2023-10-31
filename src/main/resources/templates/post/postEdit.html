@@ -16,7 +16,7 @@
         내용 : <textarea th:text="${p.getBody()}" readonly="readonly" ></textarea><br>
 
 
-        <form th:object="${targetPost}" th:action="@{/posts/updateLikes/{postId}(postId=${p.getPostid()})}" method="post">
+        <form th:object="${targetPost}" th:action="@{/posts/update/{postId}(postId=${p.getPostid()})}" method="post">
             <input type="hidden" name="postid" th:value="${p.getPostid()}">
             좋아요 수 : <input type="text" name="likes" th:field="*{likes}">
             <hr>
