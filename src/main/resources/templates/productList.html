@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>ID</th><th>제품명</th><th>maker</th><th>price</th>
+    </tr>
+<!--    p => 내가 선언하는 지역변수 -->
+    <tr th:each="p : ${products}">
+        <td th:text="${p.getProductId()}">ID</td>
+
+        <td th:text="${p.getProductName()}">이름</td>
+        <td th:text="${p.getMaker()}">메이커</td>
+        <td th:text="${p.getPrice()}">가격</td>
+    </tr>
+</table>
+</body>
+</html>

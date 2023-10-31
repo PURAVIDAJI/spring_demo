@@ -23,17 +23,20 @@ public class MemoryProductRepositotyImpl implements ProductRepository{
 
     public MemoryProductRepositotyImpl() {
         //시작할때마다 디폴트 데이터 값들
-        seq++;
         Product product = Product.builder()
                             .productName("제품명1")
                             .maker("오리")
-                            .productId(seq)
                             .price(15000)
                             .qty(100)
                             .build();
-
-        productMap.put(seq,product);
-
+        insert(product);
+        product = Product.builder()
+                .productName("제품명2")
+                .maker("오리")
+                .price(10000)
+                .qty(1000)
+                .build();
+        insert(product);
     }
 
     @Override

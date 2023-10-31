@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Post List</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        ul {
+            list-style: none; /* Remove bullet points from the list */
+            padding: 0;       /* Remove default padding */
+        }
+        .post {
+            border: 1px solid #ddd; /* Add a border around each post */
+            margin-bottom: 20px;   /* Add spacing between posts */
+            padding: 20px;         /* Add padding inside each post */
+        }
+        h2 {
+
+            font-size: 24px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+
+        }
+        .content {
+            width: 80%;      /* Make the content area wider */
+            margin: 0 auto;  /* Center align the content area */
+        }
+        hr {
+            border-top: 1px solid #ddd; /* Add a horizontal line */
+        }
+        .likes {
+            font-weight: bold; /* Make the "좋아요 수" section bold */
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li th:each="p : ${post}">
+        <div class="post">
+            <!-- 제목 필드를 <h2> 태그로 변경 -->
+            <h2 th:text="${p.getTitle()}"></h2>
+
+            <div class="content">
+                <!-- 바디 필드를 textarea로 변경 -->
+                <div class="content">
+                    <div th:text="${p.getBody()}" readonly="readonly" rows="10" cols="50"></div>
+                </div>
+                <hr>
+                <div class="likes">
+                    좋아요 수 : <span th:text="${p.getLikes()}"></span>
+                </div>
+            </div>
+            <hr>
+            <a href="" th:href="@{/posts/update/{postId}(postId=${p.getPostid()})}">수정하기</a>
+        </div>
+    </li>
+</ul>
+</body>
+</html>

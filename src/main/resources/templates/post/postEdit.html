@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Post Edit</title>
+</head>
+<body>
+<body>
+
+<ul>
+    <li th:each="p : ${targetPost}" >
+        <!-- 제목 필드를 읽기 전용 input으로 변경 -->
+       제목 :  <input type="text" th:value="${p.getTitle()}" readonly="readonly"><br>
+        <!-- 바디 필드를 textarea로 변경 -->
+        내용 : <textarea th:text="${p.getBody()}" readonly="readonly" ></textarea><br>
+
+
+        <form th:object="${targetPost}" th:action="@{/posts/updateLikes/{postId}(postId=${p.getPostid()})}" method="post">
+            <input type="hidden" name="postid" th:value="${p.getPostid()}">
+            좋아요 수 : <input type="text" name="likes" th:field="*{likes}">
+            <hr>
+            <input type="submit" value="입력">
+        </form>
+
+    </li>
+</ul>
+
+
+</body>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>객체를 받아오기</title>
+</head>
+<body>
+
+
+<form th:action="@{/view/student}" action="" method="post">
+
+
+   이름 :  <input type="text" name="name">
+    전공 : <input type="text" name="major">
+    학점 : <input type="text" name="point">
+
+    <input type="submit" value="입력">
+</form>
+
+
+</body>
+</html>

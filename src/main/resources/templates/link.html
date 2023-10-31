@@ -10,7 +10,13 @@
 <ul>
     <li><a href="" th:href ="@{/view/text}">text url</a></li>
     <li><a href="" th:href="@{/view/object}">obj url</a></li>
-    <li><a href="" th:href="@{/view/param(param1 = ${param1},param2 = ${param2})}">param url</a></li>
+    <li><a href="" th:href="@{/view/param(param1 = ${param1},param2 = ${param2})}">query param url</a></li>
+    <li><a href="" th:href="@{/view/param/{param1}/{param2} (param1 = ${param1},param2 =${param2})}">
+        path param url
+    </a></li>
+    <li><a href="" th:href="@{/view/param/{param1}(param1 = ${param1},param2 =${param2})}">
+        path param + query param url
+    </a></li>
 </ul>
 
 </body>

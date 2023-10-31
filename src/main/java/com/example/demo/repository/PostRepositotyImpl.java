@@ -1,6 +1,7 @@
 package com.example.demo.repository;
 
 import com.example.demo.model.Post;
+import com.example.demo.model.Student;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -8,7 +9,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Repository //얘네를 리파지토리라고 알려주고 나중에 주입시킬 것임
+
+//@Repository //얘네를 리파지토리라고 알려주고 나중에 주입시킬 것임
 //인터페이스는 인스턴스화 할 수 없기에
 //구현체를 인스턴스화 할수 있으므로 이것을 컴포넌트화 한다.
 
@@ -20,7 +22,22 @@ public class PostRepositotyImpl implements PostRepository{
     private static Map<Integer,Post> posts = new HashMap<>();
     private static int seq =0;
 
+    public PostRepositotyImpl() {
 
+        Post post = new Post();
+        post.setTitle("가자지구 공습");
+        post.setBody("가자지구에서는 현재 전쟁이 일어나고 있습니다...");
+        post.setLikes(100);
+        insertPost(post);
+
+        Post post1 = new Post();
+
+        post1.setTitle("물가상승률 최고치");
+        post1.setBody("2023년 10월의 한국의 물가상승률은 올해 최대치를 기록했습니다...");
+        post1.setLikes(20);
+        insertPost(post1);
+
+    }
 
     @Override
     public List<Post> selectAllPosts() {

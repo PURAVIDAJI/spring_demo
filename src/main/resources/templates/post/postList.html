@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Product List</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>ID</th><th>제목</th><th>Likes</th>
+    </tr>
+<!--    p => 내가 선언하는 지역변수 -->
+    <tr th:each="t : ${posts}">
+        <td th:text="${t.getPostid()}">ID</td>
+        <td >
+            <a th:href ="@{/posts/detail/{postId}(postId=${t.getPostid()})}" th:text="${t.getTitle()}">
+                제목
+            </a>
+        </td>
+        <td th:text="${t.getLikes()}">좋아요 수</td>
+        <td>
+        <form th:action="@{/posts/update/{postId}(postId=${t.getPostid()})}">
+            <button type="submit">수정하기</button>
+        </form>
+        </td>
+
+
+        <td>
+            <form th:action="@{/posts/delete/{postId}(postId=${t.getPostid()})}" method="post">
+                <button type="submit">삭제하기</button>
+            </form>
+        </td>
+
+    </tr>
+</table>
+
+<hr>
+<form th:action="@{/posts/view}" method="post">
+
+
+
+    제목 : <input type="text" name="title">
+    내용 : <input type="text" name="body">
+    Likes : <input type="text" name="likes">
+
+
+    <input type="submit" value="입력">
+</form>
+</body>
+</html>
